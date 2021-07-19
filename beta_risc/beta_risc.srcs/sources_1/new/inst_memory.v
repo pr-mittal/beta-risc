@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 18.07.2021 10:29:48
+// Create Date: 19.07.2021 14:03:27
 // Design Name: 
-// Module Name: alu
+// Module Name: inst_memory
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -19,8 +19,15 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-
-module memory(rd,Adr,wrtData,we,oe,clk);
-    parameter 
-    output rd;
+module inst_memory(out,Adr);
+    parameter Mbit=32;
+    output [Mbit-1:0] out;
+    input [Mbit-1:0] Adr;
+    reg [Mbit-1:0] mem[2**Mbit-1:0];
+    initial
+    begin
+        $readmemb("C:\\Users\\prana\\OneDrive\\Documents\\GitHub\\beta-risc\\beta_risc\\beta_risc.srcs\\sources_1\\new\\mem\\mem_inst.txt",mem);
+    end
+    assign out = mem[Adr];
 endmodule
+

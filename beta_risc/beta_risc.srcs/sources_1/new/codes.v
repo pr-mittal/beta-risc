@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 18.07.2021 10:29:48
+// Create Date: 19.07.2021 18:23:30
 // Design Name: 
-// Module Name: alu
+// Module Name: codes
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,5 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module pc(    );
+module codes(
+
+    );
 endmodule
