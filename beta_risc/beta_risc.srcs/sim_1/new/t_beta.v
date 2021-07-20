@@ -25,10 +25,26 @@ module t_beta(
     );
     parameter Mbit=32;
     integer i;
+    //file I/O
     integer file_id_1,file_id_2;
     reg [Mbit-1:0] key_1,key_2;
+    
+    //Beta-ALU
+    reg clk,irq=1'b0,e_ALU=1'b1,reset;
+    reg [Mbit-1:0] start_pc=32'b0,xAdr,illOp;
+    reg [4:0] xp=5'd30;
+    
+    beta B(irq,clk,e_ALU,reset,start_pc,xAdr,illOp,xp);
+    initial
+    begin
+        reset=1'b0;clk=1'b0;
+        #10 clk=1'b1;reset=1'b1;
+        forever
+            #10 clk=~clk;
+    end
     initial 
     begin
+        #1000 
         file_id_1=$fopen("C:\\Users\\prana\\OneDrive\\Documents\\GitHub\\beta-risc\\beta_risc\\beta_risc.srcs\\sources_1\\new\\mem\\mem_inst.txt","w");
         file_id_2=$fopen("C:\\Users\\prana\\OneDrive\\Documents\\GitHub\\beta-risc\\beta_risc\\beta_risc.srcs\\sources_1\\new\\mem\\mem_data.txt","w");
         for(i=0;i<2**Mbit;i=i+1)

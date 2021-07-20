@@ -1,0 +1,63 @@
+
+*** Running vivado
+    with args -log beta.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source beta.tcl
+
+
+****** Vivado v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source beta.tcl -notrace
+Command: synth_design -top beta -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 4816 
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 430.328 ; gain = 98.223
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'beta' [C:/Users/prana/OneDrive/Documents/GitHub/beta-risc/beta_risc/beta_risc.srcs/sources_1/new/beta.v:22]
+	Parameter Mbit bound to: 32 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'inst_memory' [C:/Users/prana/OneDrive/Documents/GitHub/beta-risc/beta_risc/beta_risc.srcs/sources_1/new/inst_memory.v:22]
+	Parameter Mbit bound to: 32 - type: integer 
+INFO: [Synth 8-3876] $readmem data file 'C:\Users\prana\OneDrive\Documents\GitHub\beta-risc\beta_risc\beta_risc.srcs\sources_1\new\mem\mem_inst.txt' is read successfully [C:/Users/prana/OneDrive/Documents/GitHub/beta-risc/beta_risc/beta_risc.srcs/sources_1/new/inst_memory.v:29]
+
+Warning: Trying to implement RAM in registers. Block RAM or DRAM implementation is not possible for one or more of the following reasons :
+	1: Unable to determine number of words or word size in RAM. 
+	2: No valid read/write found for RAM. 
+RAM dissolved into registers
+WARNING: [Synth 8-3848] Net mem in module/entity inst_memory does not have driver. [C:/Users/prana/OneDrive/Documents/GitHub/beta-risc/beta_risc/beta_risc.srcs/sources_1/new/inst_memory.v:26]
+WARNING: [Synth 8-3848] Net mem in module/entity inst_memory does not have driver. [C:/Users/prana/OneDrive/Documents/GitHub/beta-risc/beta_risc/beta_risc.srcs/sources_1/new/inst_memory.v:26]
+INFO: [Synth 8-6155] done synthesizing module 'inst_memory' (1#1) [C:/Users/prana/OneDrive/Documents/GitHub/beta-risc/beta_risc/beta_risc.srcs/sources_1/new/inst_memory.v:22]
+INFO: [Synth 8-6157] synthesizing module 'mux_2x1' [C:/Users/prana/OneDrive/Documents/GitHub/beta-risc/beta_risc/beta_risc.srcs/sources_1/new/mux_2x1.v:21]
+	Parameter Mbit bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux_2x1' (2#1) [C:/Users/prana/OneDrive/Documents/GitHub/beta-risc/beta_risc/beta_risc.srcs/sources_1/new/mux_2x1.v:21]
+INFO: [Synth 8-6157] synthesizing module 'register_file' [C:/Users/prana/OneDrive/Documents/GitHub/beta-risc/beta_risc/beta_risc.srcs/sources_1/new/register_file.v:23]
+	Parameter MAdr bound to: 5 - type: integer 
+	Parameter Mdata bound to: 32 - type: integer 
+	Parameter Mreg bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'register_file' (3#1) [C:/Users/prana/OneDrive/Documents/GitHub/beta-risc/beta_risc/beta_risc.srcs/sources_1/new/register_file.v:23]
+WARNING: [Synth 8-689] width (32) of port connection 'rd1' does not match port width (5) of module 'register_file' [C:/Users/prana/OneDrive/Documents/GitHub/beta-risc/beta_risc/beta_risc.srcs/sources_1/new/beta.v:49]
+WARNING: [Synth 8-689] width (32) of port connection 'rd2' does not match port width (5) of module 'register_file' [C:/Users/prana/OneDrive/Documents/GitHub/beta-risc/beta_risc/beta_risc.srcs/sources_1/new/beta.v:49]
+INFO: [Synth 8-6157] synthesizing module 'mux_5x1' [C:/Users/prana/OneDrive/Documents/GitHub/beta-risc/beta_risc/beta_risc.srcs/sources_1/new/mux_5x1.v:23]
+	Parameter Mbit bound to: 32 - type: integer 
+WARNING: [Synth 8-567] referenced signal 'in2' should be on the sensitivity list [C:/Users/prana/OneDrive/Documents/GitHub/beta-risc/beta_risc/beta_risc.srcs/sources_1/new/mux_5x1.v:29]
+WARNING: [Synth 8-567] referenced signal 'in3' should be on the sensitivity list [C:/Users/prana/OneDrive/Documents/GitHub/beta-risc/beta_risc/beta_risc.srcs/sources_1/new/mux_5x1.v:29]
+WARNING: [Synth 8-567] referenced signal 'in4' should be on the sensitivity list [C:/Users/prana/OneDrive/Documents/GitHub/beta-risc/beta_risc/beta_risc.srcs/sources_1/new/mux_5x1.v:29]
+INFO: [Synth 8-6155] done synthesizing module 'mux_5x1' (4#1) [C:/Users/prana/OneDrive/Documents/GitHub/beta-risc/beta_risc/beta_risc.srcs/sources_1/new/mux_5x1.v:23]
+INFO: [Synth 8-6157] synthesizing module 'mux_2x1__parameterized0' [C:/Users/prana/OneDrive/Documents/GitHub/beta-risc/beta_risc/beta_risc.srcs/sources_1/new/mux_2x1.v:21]
+	Parameter Mbit bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'mux_2x1__parameterized0' (4#1) [C:/Users/prana/OneDrive/Documents/GitHub/beta-risc/beta_risc/beta_risc.srcs/sources_1/new/mux_2x1.v:21]
+ERROR: [Synth 8-685] variable 'next_pc' should not be used in output port connection [C:/Users/prana/OneDrive/Documents/GitHub/beta-risc/beta_risc/beta_risc.srcs/sources_1/new/beta.v:54]
+ERROR: [Synth 8-6156] failed synthesizing module 'beta' [C:/Users/prana/OneDrive/Documents/GitHub/beta-risc/beta_risc/beta_risc.srcs/sources_1/new/beta.v:22]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 486.051 ; gain = 153.945
+---------------------------------------------------------------------------------
+synthesize failed
+INFO: [Common 17-83] Releasing license: Synthesis
+14 Infos, 7 Warnings, 0 Critical Warnings and 3 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Vivado Synthesis failed
+INFO: [Common 17-206] Exiting Vivado at Tue Jul 20 10:50:08 2021...

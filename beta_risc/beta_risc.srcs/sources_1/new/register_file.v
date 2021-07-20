@@ -29,6 +29,7 @@ module register_file( rd1, rd2, wrtAdr, wrtEnable, wrtData, rdAdr1, rdAdr2,clk);
     input [Mdata-1:0] wrtData;
     input wrtEnable,clk;
     reg [Mdata-1:0] mem [Mreg-1:0];
+    always@(*) mem[Mreg-1]<=32'b0;
     always@(posedge clk)
     begin
         rd1<=mem[rdAdr1];
