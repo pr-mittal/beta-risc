@@ -21,9 +21,9 @@
 module data_memory(rd,Adr,wrtData,mwr,moe,clk);
     parameter Mbit=32;
     output reg [Mbit-1:0] rd;
-    input [Mbit-1:0] Adr,wrtData;
+    input [Mbit-1:0] Adr,wrtData;//received address tell the byte address
     input mwr,moe,clk;//write enable , read enable , clock
-    reg [Mbit-1:0] mem[2**Mbit-1:0];
+    reg [7:0] mem[2**Mbit-1:0];// each address is a byte 
     
     initial
     begin
@@ -32,9 +32,9 @@ module data_memory(rd,Adr,wrtData,mwr,moe,clk);
     always@(posedge clk)
     begin
         if(mwr==1)
-            mem[Adr]<=wrtData;
+            {mem[Adr],mem[Adr+1],mem[Adr+2],mem[Adr+3]}<=wrtData;//return 32 bits or 4 bytes
         else
             if(moe==1)
-                rd<=mem[Adr];
+                rd<={mem[Adr],mem[Adr+1],mem[Adr+2],mem[Adr+3]};;//return 32 bits or 4 bytes
     end
 endmodule
