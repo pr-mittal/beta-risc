@@ -16,7 +16,7 @@
 
 
 
-Testcase 1
+#### Testcase 1
 
 | Assembly        | Instruction                            | Data(Byte Address)  |
 | :-------------- | -------------------------------------- | ------------------- |
@@ -32,9 +32,11 @@ Testcase 1
 | MUL(r2,r1,r1)   | 100010 00000 00001 00000 0000_0000_000 |                     |
 | ST(r1,y)        | 011001 00000 11111 0000_0000_0000_0100 |                     |
 
+#### Output
 
+![image](https://user-images.githubusercontent.com/56964828/126904805-54bf4dc8-4883-4963-bda1-4669038425c7.png)
 
-Testcase 2
+#### Testcase 2
 
 | Assembly                 | Instruction                            | Memory(Byte Address) |
 | ------------------------ | -------------------------------------- | -------------------- |
@@ -49,7 +51,59 @@ Testcase 2
 | BEQ(r31, loop, r31)      | 011101 11111 11111 1111_1111_1111_1100 | \| Always branches!  |
 | done: ST(r1, ans, r31)   | 011001 00000 11111 0000_0000_0000_0100 | \| ans = r1          |
 
-Check PC , BEQ 
+#### Output 
+
+![image](https://user-images.githubusercontent.com/56964828/126904815-a3c53e6a-dd16-41d9-821a-71fcec273751.png) 
+
+#### RTL Syntesis
+
+![image](https://user-images.githubusercontent.com/56964828/126904969-21422eba-fdf2-42f8-aad4-f5b7d9a8f4be.png)
+
+#### File Structure 
+
+python code for memory in .txt : 
+
+1. mem/ mem_data.txt
+
+2. mem/mem_inst.txt
+
+3. mem/write.py
+
+4. Simulation sources : 
+
+5. sim/t_beta.v
+
+6. sim/t_mem.v
+
+Design sources : 
+
+1. sources/alu.v
+
+2. sources/beta.v
+
+3. sources/codes.v
+
+4. sources/control_logic.v
+
+5. sources/data_memory.v
+
+6. sources/inst_memory.v
+
+7. sources/mux_2x1.v
+
+8. sources/mux_3x1.v
+
+9. sources/mux_5x1.v
+
+10. sources/register_file.v
+
+11. sources/state_definition.v
+
+Vivado project :  beta_risc/
+
+
+
+#### THEORY
 
 ![image](https://user-images.githubusercontent.com/56964828/126859300-cb04b5a4-fc8f-4f8a-9c64-3941b68edd06.png)
 ![image](https://user-images.githubusercontent.com/56964828/126859304-cd9ce05c-694a-40da-9682-7d9ebce07d42.png)
