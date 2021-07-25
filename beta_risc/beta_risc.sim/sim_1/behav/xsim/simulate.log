@@ -1,37 +1,117 @@
 Vivado Simulator 2018.3
 Time resolution is 1 ps
-WARNING: Too many words specified in data file C:\Users\prana\OneDrive\Documents\GitHub\beta-risc\beta_risc\beta_risc.srcs\sources_1\new\mem\mem_inst.txt
-xxxxxxxx
-xxxxxxxx
-xxxxxxxx
-xxxxxxxx
-xxxxxxxx
-xxxxxxxx
-xxxxxxxx
-xxxxxxxx
-xxxxxxxx
-xxxxxxxx
-xxxxxxxx
-xxxxxxxx
-xxxxxxxx
-xxxxxxxx
-xxxxxxxx
-xxxxxxxx
-xxxxxxxx
-xxxxxxxx
-xxxxxxxx
-xxxxxxxx
-xxxxxxxx
-xxxxxxxx
-xxxxxxxx
-xxxxxxxx
-xxxxxxxx
-xxxxxxxx
-xxxxxxxx
-xxxxxxxx
-xxxxxxxx
-xxxxxxxx
-xxxxxxxx
-xxxxxxxx
-xxxxxxxx
-$finish called at time : 10 ns : File "C:/Users/prana/OneDrive/Documents/GitHub/beta-risc/beta_risc/beta_risc.srcs/sim_1/new/t_mem.v" Line 42
+Register File          x
+
+         x
+
+         x
+
+Register File          1
+
+         x
+
+         x
+
+Register File          1
+
+         3
+
+         x
+
+Register File          1
+
+         3
+
+         x
+
+Register File          3
+
+         3
+
+         x
+
+Register File          3
+
+         2
+
+         x
+
+Register File          3
+
+         2
+
+         x
+
+Register File          3
+
+         2
+
+         x
+
+Register File          6
+
+         2
+
+         x
+
+Register File          6
+
+         1
+
+         x
+
+Register File          6
+
+         1
+
+         x
+
+Register File          6
+
+         1
+
+         x
+
+Register File          6
+
+         1
+
+         x
+
+Register File          6
+
+         0
+
+         x
+
+Register File          6
+
+         0
+
+         x
+
+Register File          6
+
+         0
+
+         x
+
+Register File          6
+
+         0
+
+         x
+
+Register File          6
+
+         0
+
+         x
+
+Data memory          3
+
+         6
+
+         x
+
+$finish called at time : 370 ns : File "C:/Users/prana/OneDrive/Documents/GitHub/beta-risc/beta_risc/beta_risc.srcs/sim_1/new/t_beta.v" Line 63

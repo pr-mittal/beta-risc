@@ -18,33 +18,25 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-
-
 module t_mem(    );
     parameter Mbit=32;
-    integer adr; 
-    reg [7:0] mem[32:0]; //each address is a byte
+    integer adr;
+    reg clk=1'b0;
     wire [Mbit-1:0] inst;
     inst_memory IM2(.out(inst),.Adr(adr));
 //    wire [Mbit-1:0] rd;
 //    data_memory DM(.rd(rd),.Adr(Adr),.wrtData(rd2),.mwr(mwr),.moe(moe),.clk(clk));
-    
-//    initial
-//    begin
-//        $readmemb("C:\\Users\\prana\\OneDrive\\Documents\\GitHub\\beta-risc\\beta_risc\\beta_risc.srcs\\sources_1\\new\\mem\\mem_inst.txt",mem);
-//    end
+    initial
+    forever 
+        #5 clk=~clk;
     initial 
     begin
-        
-        for(adr=0;adr<33;adr=adr+1)
+        for(adr=0;adr<33;adr=adr+4)
         begin
-            $display("%b",mem[adr]);
+            #10 $display("%b",inst);
         end
         $finish;
-    end
-    
-    
-    
+    end    
 endmodule
 
 //module t_mem(    );

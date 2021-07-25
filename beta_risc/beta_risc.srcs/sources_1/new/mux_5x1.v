@@ -29,12 +29,12 @@ module mux_5x1(out, in0 , in1, in2 , in3 , in4, sel);
     always @(in0,in1,sel)
     begin
         case(sel)
-        3'b000:out=in0;
-        3'b001:out=in1;
-        3'b010:out=in2;
-        3'b011:out=in3;
-        3'b100:out=in4;
-        default:out=in0;
+        3'b000:out<=in0;
+        3'b001:out<=in1;
+        3'b010:out<=in2;
+        3'b011:out<=in3;
+        3'b100:out<=in4;
+        default:out<=in0;
         endcase
     end
 endmodule

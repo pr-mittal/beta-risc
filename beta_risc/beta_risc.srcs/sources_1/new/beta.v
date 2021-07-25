@@ -21,8 +21,8 @@
 
 module beta(irq,clk,e_ALU,reset,start_pc,xAdr,illOp,xp);
     parameter Mbit=32;
-    input clk,irq,e_ALU,reset;
-    input [Mbit-1:0] start_pc,xAdr,illOp;
+    input clk,irq,e_ALU,reset;//irq->interuppt request
+    input [Mbit-1:0] start_pc,xAdr,illOp;//address for instruction by PC in case of exceptions 
     input [4:0] xp;
     //control logic output
     wire [3:0] alufn;
@@ -32,7 +32,7 @@ module beta(irq,clk,e_ALU,reset,start_pc,xAdr,illOp,xp);
     
     //select PC
     reg [Mbit-1:0] cur_pc;
-    wire next_pc;
+    wire [Mbit-1:0] next_pc;
     reg [Mbit-1:0] pc_add_4,pc_add_c;
     wire [Mbit-1:0] pc_out,JT;
     
@@ -42,12 +42,11 @@ module beta(irq,clk,e_ALU,reset,start_pc,xAdr,illOp,xp);
     inst_memory IM(.out(inst),.Adr(cur_pc));
     
     //register file - send ra , rb, write address and get info accrdingly
-    wire [4:0] ra1,ra2,wa;
+    wire [4:0] ra2,wa;
     wire [Mbit-1:0] rd1,rd2,wd;
     mux_2x1 #(.Mbit(5)) M2x1_2(.out(ra2), .in0(inst[15:11]) , .in1(inst[25:21]) , .sel(ra2sel));
     mux_2x1 #(.Mbit(5)) M2x1_3(.out(wa), .in0(inst[25:21]) , .in1(xp) , .sel(wasel));
-    assign ra1=inst[20:16];
-    register_file RF( .rd1(rd1),.rd2(rd2),.wrtAdr(wa),.wrtEnable(werf),.wrtData(wd),.rdAdr1(ra1), .rdAdr2(ra2),.clk(clk));
+    register_file RF( .rd1(rd1),.rd2(rd2),.wrtAdr(wa),.wrtEnable(werf),.wrtData(wd),.rdAdr1(inst[20:16]), .rdAdr2(ra2),.clk(clk));
     
     //select PC
     assign JT=rd1;
@@ -83,6 +82,6 @@ module beta(irq,clk,e_ALU,reset,start_pc,xAdr,illOp,xp);
     always@(cur_pc)
     begin
         pc_add_4=cur_pc+4;
-        pc_add_c=pc_add_4+{14*{inst[15]},inst[15:0],2'b00};
+        pc_add_c=pc_add_4+{{14{inst[15]}},inst[15:0],2'b00};//PC+4
     end
 endmodule

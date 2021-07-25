@@ -26,8 +26,8 @@ module mux_2x1(out, in0 , in1 , sel);
     always @(in0,in1,sel)
     begin
         if(sel)
-            out=in1;
+            out<=in1;
         else
-            out=in0;
+            out<=in0;
     end
 endmodule

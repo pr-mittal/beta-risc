@@ -24,18 +24,24 @@ module register_file( rd1, rd2, wrtAdr, wrtEnable, wrtData, rdAdr1, rdAdr2,clk);
     
     parameter MAdr=5,Mdata=32,Mreg=2**MAdr;
     
-    output reg [MAdr-1:0] rd1,rd2;
+    output [Mdata-1:0] rd1,rd2;
     input [MAdr-1:0] wrtAdr, rdAdr1, rdAdr2;
     input [Mdata-1:0] wrtData;
     input wrtEnable,clk;
     reg [Mdata-1:0] mem [Mreg-1:0];
-    initial begin mem[Mreg-1]<=32'b0; end
+    
     always@(posedge clk)
     begin
-        rd1<=mem[rdAdr1];
-        rd2<=mem[rdAdr2];
+        //synchronous write
         if(wrtEnable)
             mem[wrtAdr]<=wrtData;
-        mem[Mreg-1]<=32'b0;
+        mem[Mreg-1]<=32'd0;
     end
+    initial mem[Mreg-1]=32'd0;
+    
+    
+    //combinational read
+    assign rd1=mem[rdAdr1];
+    assign rd2=mem[rdAdr2];
+    
 endmodule

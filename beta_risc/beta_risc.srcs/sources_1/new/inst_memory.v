@@ -21,9 +21,10 @@
 
 module inst_memory(out,Adr);
     parameter Mbit=32;
+    parameter size=1024;
     output [Mbit-1:0] out;
     input [Mbit-1:0] Adr;//received address tell the byte address
-    reg [7:0] mem[2**Mbit-1:0]; //each address is a byte
+    reg [7:0] mem[size-1:0]; //each address is a byte
     initial
     begin
         $readmemb("C:\\Users\\prana\\OneDrive\\Documents\\GitHub\\beta-risc\\beta_risc\\beta_risc.srcs\\sources_1\\new\\mem\\mem_inst.txt",mem);
